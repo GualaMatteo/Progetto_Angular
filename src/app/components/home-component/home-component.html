@@ -1,1 +1,50 @@
-<p>home-component works!</p>
+<div class="home">
+  @if (loading()) {
+    <div class="state-center">
+      <div class="spinner"></div>
+    </div>
+  }
+  @if (error()) {
+    <div class="state-center">
+      <p class="error-message">{{ error() }}</p>
+    </div>
+  }
+  @if (!loading() && !error()) {
+    <div class="page-content">
+      <div class="filters">
+        <input
+          type="search"
+          class="filters__search"
+          placeholder="Cerca un gioco..."
+          [(ngModel)]="searchText"
+        />
+      </div>
+      <div class="game-grid">
+        @for (game of giochi(); track game.id) {
+          <div class="game-card">
+            <div class="game-card__image">
+              @if (game.image_url) {
+                <img [src]="game.image_url" [alt]="game.titolo" />
+              } @else {
+                <span class="game-card__no-image">No Image</span>
+              }
+            </div>
+            <div class="game-card__body">
+              <h5 class="game-card__title">{{ game.titolo }}</h5>
+              <p class="game-card__developer">{{ game.sviluppatore }}</p>
+              <div class="game-card__categories">
+                @for (cat of game.categorie; track cat.nome) {
+                  <span class="badge">{{ cat.nome }}</span>
+                }
+              </div>
+              <div class="game-card__footer">
+                <span class="game-card__price">€ {{ game.prezzo }}</span>
+                <small class="game-card__date">{{ game.datarilascio }}</small>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

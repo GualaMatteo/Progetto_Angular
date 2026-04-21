@@ -1,0 +1,165 @@
+/* ── Layout ─────────────────────────────────────────── */
+
+.home {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.page-content {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Stati loading / error ───────────────────────────── */
+
+.state-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid #e5e7eb;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { rotate: 360deg; }
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 1rem;
+}
+
+/* ── Filtri ──────────────────────────────────────────── */
+
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filters__search,
+.filters__select {
+  padding: 0.6rem 0.9rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.filters__search { flex: 1; min-width: 200px; }
+.filters__select { min-width: 180px; }
+
+.filters__search:focus,
+.filters__select:focus {
+  border-color: #6366f1;
+}
+
+/* ── Griglia giochi ──────────────────────────────────── */
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── Card ────────────────────────────────────────────── */
+
+.game-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, translate 0.2s;
+}
+
+.game-card:hover {
+  box-shadow: 0 8px 24px rgb(0 0 0 / .10);
+  translate: 0 -3px;
+}
+
+.game-card__image {
+  aspect-ratio: 16/9;
+  background: #f3f4f6;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-card__no-image {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.game-card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.game-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #111827;
+}
+
+.game-card__developer {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.game-card__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+
+.badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.game-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+.game-card__price {
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.game-card__date {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}

@@ -1,3 +1,3 @@
 export class CategoriaGiochi {
-    name?:string;
+    nome!:string;
 }
