@@ -1,3 +1,5 @@
+import { CategoriaGiochi } from './categoria-giochi';
+
 export class GamesModel {
     id?:number;
     titolo?:string;
@@ -6,5 +8,5 @@ export class GamesModel {
     sviluppatore?:string;
     image_url?:string;
     descrzione?:string;
-    categorie?:string;
+    categorie?:CategoriaGiochi[];
 }
